@@ -1,7 +1,8 @@
 from fastapi import APIRouter
 from typing import List
 
-from src.models.database.Users import Users, User_Pydantic, UserIn_Pydantic
+from src.models.database.Users import Users
+from src.models.api.Users import User_Pydantic, UserIn_Pydantic
 
 # router setting
 user_router = APIRouter(
@@ -11,7 +12,7 @@ user_router = APIRouter(
 )
 
 
-@user_router.post("/")
+@user_router.post("/", response_model=User_Pydantic)
 async def create_user(request: UserIn_Pydantic):
     """
     Api endpoint to create users
@@ -20,6 +21,6 @@ async def create_user(request: UserIn_Pydantic):
     return await User_Pydantic.from_tortoise_orm(user)
 
 
-@user_router.get("/", response_model=List[User_Pydantic])
+@user_router.get("/")
 async def get_users():
     return await User_Pydantic.from_queryset(Users.all())
