@@ -12,5 +12,3 @@ class Cars(Model):
 
     class Meta:
         table = "car"
-
-

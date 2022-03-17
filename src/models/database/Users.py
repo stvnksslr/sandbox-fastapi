@@ -13,4 +13,3 @@ class Users(Model):
 
     # class PydanticMeta:
     #     exclude = ["password"]
-
