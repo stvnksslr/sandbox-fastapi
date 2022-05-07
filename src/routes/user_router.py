@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from src.models.database.Users import Users
+from src.models.database.Users import Users, User_Response
 
 # router setting
 user_router = APIRouter(
@@ -12,7 +12,9 @@ user_router = APIRouter(
 
 
 class UserRequest(BaseModel):
-    email: str
+    email: str = 'dandargan@space.com'
+    first_name: str = 'dan'
+    last_name: str = 'dargan'
 
 
 @user_router.post("/")
@@ -21,9 +23,14 @@ async def create_user(request: UserRequest):
     Api endpoint to create users
     """
     user = await Users.create(**request.dict(exclude_unset=True))
-    return await user
+    return await User_Response.from_tortoise_orm(user)
 
 
 @user_router.get("/")
 async def get_users():
-    return await Users.all()
+    """
+    API endpoint to return all created users
+
+    :return:
+    """
+    return await User_Response.from_queryset(Users.all())

@@ -1,5 +1,6 @@
 from tortoise import fields
 from tortoise.models import Model
+from tortoise.contrib.pydantic import pydantic_model_creator
 
 
 class Users(Model):
@@ -11,5 +12,5 @@ class Users(Model):
     class Meta:
         table = "user"
 
-    # class PydanticMeta:
-    #     exclude = ["password"]
+
+User_Response = pydantic_model_creator(Users)
