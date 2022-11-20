@@ -6,13 +6,13 @@ authors = ["steven kessler <stvnksslr@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.76.0"
-asyncpg = "^0.24.0"
+fastapi = "^0.87.0"
+asyncpg = "^0.27.0"
 loguru = "^0.6.0"
-uvicorn = {extras = ["standard"], version = "^0.17.6"}
+uvicorn = {extras = ["standard"], version = "^0.20.0"}
 httpx = "^0.22.0"
-tortoise-orm = {extras = ["accel"], version = "^0.19.0"}
-aerich = "^0.6.2"
+tortoise-orm = {extras = ["accel"], version = "^0.19.2"}
+aerich = "^0.7.1"
 fastapi-admin = "^1.0.3"
 
 [tool.poetry.dev-dependencies]
