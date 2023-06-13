@@ -1,11 +1,10 @@
 from fastapi import FastAPI
 from uvicorn import run
 
-from src.utils.db_manager import init_db
-from src.utils.log_manager import init_logging
-from src.utils.env_constants import HOSTNAME, PORT, RELOAD, LOGLEVEL
 from src.routes.root_router import router
-
+from src.utils.db_manager import init_db
+from src.utils.env_constants import HOSTNAME, LOGLEVEL, PORT, RELOAD
+from src.utils.log_manager import init_logging
 
 app = FastAPI(
     title="Sandbox FastApi Service",

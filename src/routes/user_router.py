@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from src.models.database.Users import Users, User_Response
+from src.models.database.Users import User_Response, Users
 
 # router setting
 user_router = APIRouter(
@@ -12,9 +12,9 @@ user_router = APIRouter(
 
 
 class UserRequest(BaseModel):
-    email: str = 'dandargan@space.com'
-    first_name: str = 'dan'
-    last_name: str = 'dargan'
+    email: str = "dandargan@space.com"
+    first_name: str = "dan"
+    last_name: str = "dargan"
 
 
 @user_router.post("/")

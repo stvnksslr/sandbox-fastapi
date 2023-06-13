@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-from typing import List
 from pydantic import BaseModel
 
 from src.models.database.Cars import Cars

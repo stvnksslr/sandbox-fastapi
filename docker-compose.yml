@@ -1,27 +1,22 @@
 version: "3.9"
 
 services:
-  db:
-    image: postgres:14-alpine
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_DB=devdb
-      - POSTGRES_USER=devdb
-      - POSTGRES_PASSWORD=password
-    volumes:
-      - "dbdata:/var/lib/postgresql/data"
-
-  # migration:
-  #   build:
-  #     dockerfile: dockerfile
-  #   env_file:
-  #     - .env.docker
-  #   command: bash -c "aerich upgrade"
+  # db:
+  #   image: postgres:14-alpine
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_DB=devdb
+  #     - POSTGRES_USER=devdb
+  #     - POSTGRES_PASSWORD=password
   #   volumes:
-  #     - .:/usr/src
-  #   depends_on:
-  #     - db
+  #     - "dbdata:/var/lib/postgresql/data"
+
+  app:
+    build:
+      dockerfile: ./dockerfile.dev
+    volumes:
+      - ./src:/src/src
 
 volumes:
   dbdata:

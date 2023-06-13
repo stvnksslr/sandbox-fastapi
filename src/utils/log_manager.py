@@ -1,6 +1,6 @@
 import logging
-from sys import stdout
 from pprint import pformat
+from sys import stdout
 
 from loguru import logger
 from loguru._defaults import LOGURU_FORMAT

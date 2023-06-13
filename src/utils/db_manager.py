@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from tortoise import Tortoise
 from tortoise.contrib.fastapi import register_tortoise
+
 from src.utils.env_constants import DATABASE_URI, MODELS_PATH
 
 MIGRATION_CONFIG = {
